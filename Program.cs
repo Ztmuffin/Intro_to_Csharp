@@ -1,18 +1,18 @@
 ﻿using System;
-
-namespace ConsoleApplication
-{
     public class Program
     {
-        public static PowerUp Health;
-        public static PowerUp Ammo;
-
-        static string myString = "Welcome to My world";
+        public static PowerUp Health = new PowerUp();
+        public static PowerUp Ammo = new PowerUp();
         public static void Main(string[] args)
         {
-            Health.RunPowerUp();  // because i made RunPowerUp public... i can access it from this script.
-            Ammo.RunPowerUp();
-           // Console.WriteLine(myString);
+            Health.duration = 10;
+            Health.RunPowerUp();
+            Console.WriteLine(Health.duration);
+           
+           
+           Ammo.RunPowerUp();
+
+           Health.RechargePowerUp(20);
+           Ammo.RechargePowerUp(300);
         }
     }
-}
