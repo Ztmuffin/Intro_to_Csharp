@@ -1,18 +1,13 @@
 ﻿using System;
     public class Program
     {
-        public static PowerUp Health = new PowerUp();
-        public static PowerUp Ammo = new PowerUp();
-        public static void Main(string[] args)
-        {
-            Health.duration = 10;
-            Health.RunPowerUp();
-            Console.WriteLine(Health.duration);
-           
-           
-           Ammo.RunPowerUp();
+        
 
-           Health.RechargePowerUp(20);
-           Ammo.RechargePowerUp(300);
+        public static Game myGame = new Game();
+        public static void main(string[] args)
+        {
+            Console.WriteLine("Please type your name");
+            myGame.name = Console.ReadLine();
+            Console.WriteLine("your player name is " + myGame.name);
         }
     }
