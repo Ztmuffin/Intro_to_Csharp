@@ -1,5 +1,5 @@
---temp-output:c:\Users\10541409\Documents\CSharp\obj\Debug\netcoreapp1.0\
---out:c:\Users\10541409\Documents\CSharp\bin\Debug\netcoreapp1.0\CSharp.dll
+--temp-output:C:\Users\10541409\My Documents\CSharp\obj\Debug\netcoreapp1.0\
+--out:C:\Users\10541409\My Documents\CSharp\bin\Debug\netcoreapp1.0\CSharp.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -87,5 +87,7 @@
 --reference:C:\Users\10541409\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\10541409\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\10541409\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
-c:\Users\10541409\Documents\CSharp\powerup.cs
-c:\Users\10541409\Documents\CSharp\Program.cs
+C:\Users\10541409\My Documents\CSharp\PowerUp.cs
+C:\Users\10541409\My Documents\CSharp\Program.cs
+C:\Users\10541409\My Documents\CSharp\scripts\game.cs
+C:\Users\10541409\My Documents\CSharp\scripts\GameScripts\Weapons\WeaponBase.cs

@@ -2,7 +2,6 @@
     public class Program
     {
         
-
         public static Game myGame = new Game();
         public static void main(string[] args)
         {
