@@ -6,7 +6,7 @@ public class Game {
         Health.power = 100;
         Health.message = "You are getting stronger.";
         Ammo.message = "You have a little bit more ammo.";
-        
+      
 
     }
 
