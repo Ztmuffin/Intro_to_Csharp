@@ -15,6 +15,7 @@ public class Game {
         name = Console.ReadLine();
         Console.WriteLine("Your Player Name is " + name + ".");
         while (canPlay){
+            System.Threading.Thread.Sleep(1000);
             Walk();
         }
         Console.WriteLine("you DIED!");
