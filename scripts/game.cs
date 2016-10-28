@@ -14,7 +14,10 @@ public class Game {
         Console.WriteLine("Please type your name");
         name = Console.ReadLine();
         Console.WriteLine("Your Player Name is " + name + ".");
-        Walk();
+        while (canPlay){
+            Walk();
+        }
+        Console.WriteLine("you DIED!");
     }
     
     private void Walk (){
@@ -34,6 +37,8 @@ public class Game {
     private WeaponBase Rifle = new WeaponBase();
     private WeaponBase knife = new WeaponBase();
 
+
+    public static bool canPlay = true;
     public string name;
 
     private int score;
