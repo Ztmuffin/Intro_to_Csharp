@@ -19,11 +19,27 @@ public class Game {
             Walk();
         }
         Console.WriteLine("you DIED!");
+        Console.WriteLine("Game OVER!");
     }
-    
+    public string gameState;
+
     private void Walk (){
-        Random randomNum = new Random();
         Cave.Enter();
+       
+        Console.WriteLine("Do you wish to continue?   "+ " Type help for help" );
+        gameState = Console.ReadLine();
+        if(gameState == "no"){
+            Console.WriteLine("Game OVER!");
+            Environment.Exit(0);
+        }
+        if (gameState == "help"){
+            Console.WriteLine("WTF do you need help for?!?!");
+        }
+        if (gameState != "help" && gameState != "yes" && gameState != "no"){
+            Console.WriteLine("I'm sorry i don't understand what that means." );
+        }
+        
+        Random randomNum = new Random();
         Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
     }
      //Game Levels
