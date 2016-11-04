@@ -5,9 +5,9 @@ public class LevelBase {
     public string StartMessage;
     public bool entranceOpen = true;
 
-    public string[] environment = {"Cold", "Wet", "Dark"};
+    public string[] environment;
 
-    public string[] objects ={"rocks", "a ravine", "a river","lava"};
+    public string[] objects;
 
     public void Enter (){
         Console.WriteLine(StartMessage);

@@ -43,7 +43,7 @@ public class Game {
         Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
     }
      //Game Levels
-    private LevelBase Cave = new LevelBase();
+    private LevelBase Cave = new CaveLevel();
 
     // game powerup
     public PowerUpBase Health = new PowerUpBase();
