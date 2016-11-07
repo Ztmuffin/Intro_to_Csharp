@@ -16,14 +16,14 @@ public class Game {
         Console.WriteLine("Your Player Name is " + name + ".");
         while (canPlay){
             System.Threading.Thread.Sleep(1000);
-            Walk();
+            Encounter();
         }
         Console.WriteLine("you DIED!");
         Console.WriteLine("Game OVER!");
     }
     public string gameState;
 
-    private void Walk (){
+    private void Encounter (){
         Cave.Enter();
        
         Console.WriteLine("Do you wish to continue?   "+ " Type help for help" );
@@ -44,6 +44,7 @@ public class Game {
     }
      //Game Levels
     private LevelBase Cave = new CaveLevel();
+    public static LevelBase Underwater = new LevelBase();
 
     // game powerup
     public PowerUpBase Health = new PowerUpBase();
@@ -54,7 +55,10 @@ public class Game {
     private WeaponBase Rifle = new WeaponBase();
     private WeaponBase knife = new WeaponBase();
 
-
+    // game timer?
+    public static void GameTimer () {
+        System.Threading.Thread.Sleep(2000);
+    }
     public static bool canPlay = true;
     public string name;
 
