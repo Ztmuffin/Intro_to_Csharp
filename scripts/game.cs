@@ -2,11 +2,14 @@ using System;
 
 public class Game {
 
+    public static Action StartGame;
+    public static bool canPlay = true;
     public Game () {
         Health.power = 100;
         Health.message = "You are getting stronger.";
         Ammo.message = "You have a little bit more ammo.";
         Cave.StartMessage = "You have entered a cave";
+        Underwater.objects = new string []{"seaweed", "Coral", "fish", "shark"};
       }
     
     // This runs at start of game.
@@ -16,32 +19,37 @@ public class Game {
         Console.WriteLine("Your Player Name is " + name + ".");
         while (canPlay){
             System.Threading.Thread.Sleep(1000);
-            Encounter();
+            Play();
         }
         Console.WriteLine("you DIED!");
         Console.WriteLine("Game OVER!");
     }
-    public string gameState;
-
-    private void Encounter (){
-        Cave.Enter();
-       
+    private void Play (){
         Console.WriteLine("Do you wish to continue?   "+ " Type help for help" );
-        gameState = Console.ReadLine();
-        if(gameState == "no"){
-            Console.WriteLine("Game OVER!");
-            Environment.Exit(0);
-        }
-        if (gameState == "help"){
-            Console.WriteLine("WTF do you need help for?!?!");
-        }
-        if (gameState != "help" && gameState != "yes" && gameState != "no"){
-            Console.WriteLine("I'm sorry i don't understand what that means." );
-        }
+       switch (GameStateMachine.currentGameState)
+       {
+            case GameStateMachine.GameStates.End:
+                Console.WriteLine("Game OVER!");
+                Environment.Exit(0);
+                break;
+            
+            case GameStateMachine.GameStates.Help:
+                Console.WriteLine("WTF do you need help for?!?!");
+                Play();
+                break;
+            case GameStateMachine.GameStates.Play:
+
+                break;
+            default:
+                Console.WriteLine("I'm sorry i don't understand what that means." );
+                Play();
+                break;
+       }
         
         Random randomNum = new Random();
         Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
     }
+    
      //Game Levels
     private LevelBase Cave = new CaveLevel();
     public static LevelBase Underwater = new LevelBase();
@@ -59,7 +67,7 @@ public class Game {
     public static void GameTimer () {
         System.Threading.Thread.Sleep(2000);
     }
-    public static bool canPlay = true;
+    
     public string name;
 
     private int score;
