@@ -24,21 +24,47 @@ public class Game {
         Console.WriteLine("you DIED!");
         Console.WriteLine("Game OVER!");
     }
+    private string gameState = "Start";
+    private GameStateMachine.GameStates toEnum;
     private void Play (){
-        Console.WriteLine("Do you wish to continue?   "+ " Type help for help" );
-       switch (GameStateMachine.currentGameState)
+        
+       switch (toEnum)
        {
             case GameStateMachine.GameStates.End:
                 Console.WriteLine("Game OVER!");
                 Environment.Exit(0);
                 break;
-            
-            case GameStateMachine.GameStates.Help:
-                Console.WriteLine("WTF do you need help for?!?!");
+
+            case GameStateMachine.GameStates.Died:
+                Console.WriteLine("You've died!");
+                Console.WriteLine("Game OVER!");
+                GameStateMachine.currentGameState = GameStateMachine.GameStates.End;
                 Play();
                 break;
-            case GameStateMachine.GameStates.Play:
+            
+            case GameStateMachine.GameStates.Start:
+                Console.WriteLine("Please type your name:");
+                name = Console.ReadLine();
+                Console.WriteLine("Your Player name is " + name);
 
+                Console.WriteLine("Do you wish to play?   "+ " Type Play, or help for help" );
+                gameState = Console.ReadLine();
+                if (Enum.TryParse(gameState, out toEnum)) 
+                    Play();
+                break;
+             case GameStateMachine.GameStates.Help:
+                     Console.WriteLine("WTF do you need help for?");
+                     Play();
+                break;
+            case GameStateMachine.GameStates.Play:
+                while (true)
+                {
+                    Cave.Enter();
+                    Random randomNum = new Random();
+                    Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
+                    GameTimer();
+                    Play();
+                }
                 break;
             default:
                 Console.WriteLine("I'm sorry i don't understand what that means." );
@@ -46,8 +72,6 @@ public class Game {
                 break;
        }
         
-        Random randomNum = new Random();
-        Cave.Encounter(randomNum.Next(0, Cave.objects.Length));
     }
     
      //Game Levels

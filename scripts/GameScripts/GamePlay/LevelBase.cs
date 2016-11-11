@@ -14,8 +14,12 @@ public class LevelBase {
     }
     public void Encounter (int i){
         switch (i){
+            case 0:
+                Console.WriteLine("You've walked into " + objects[i]);
+            break;
             case 1:
                 Console.WriteLine("You've walked into " + objects[i]);
+                GameStateMachine.currentGameState = GameStateMachine.GameStates.Died;
             break;
 
             case 2:
